@@ -1,1 +1,1 @@
-# Cota-o-de-Moedas
+# Cotacao-de-Moedas
