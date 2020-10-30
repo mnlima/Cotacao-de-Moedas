@@ -45,7 +45,7 @@ export default function App() {
 
 
   async function consultarCotacao() {
-    let url = `https://economia.awesomeapi.com.br/${moeda}/${quantidade}?start_date=${dataInicial.replace(/[^0-9]/g, '')}end_date=${dataFinal.replace(/[^0-9]/g, '')}`;
+    let url = `https://economia.awesomeapi.com.br/${moeda}/${quantidade}?start_date=${dataInicial.replace(/[^0-9]/g, '')}&end_date=${dataFinal.replace(/[^0-9]/g, '')}`;
 
     await fetch(url).then(resp => resp.json()).then(res => {
       let dados = [];
