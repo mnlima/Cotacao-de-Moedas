@@ -38,7 +38,7 @@ export default function App() {
   const [moeda, setMoeda] = useState('USD-BRL');
   const [dataInicial, setDataInicial] = useState('');
   const [dataFinal, setDataFinal] = useState('');
-  const [quantidade, setQuantidade] = useState(20);
+  const [quantidade, setQuantidade] = useState(10);
   const [tipoDado, setTipoDado] = useState('bid');
   const [chartData, setChartData] = useState();
   const [tipoGrafico, setTipoGrafico] = useState(1);
@@ -51,9 +51,12 @@ export default function App() {
       let dados = [];
       let label = [];
 
-      res.map((element, index) => {
+      res.map((element) => {
+        let date = new Date(element.timestamp * 1000);
+        let dataCotacao = `${date.toLocaleDateString('pt-BR')} ${date.getHours()}:${date.getMinutes()}`
+
         dados = [element[tipoDado], ...dados];
-        label = [quantidade - index, ...label];
+        label = [dataCotacao, ...label];
       });
 
       console.log(label)
@@ -87,7 +90,7 @@ export default function App() {
         </div>
       </div>
 
-      <div className="row container-fluid justify-content-center">
+      <div className="row ml-1 container-fluid justify-content-center">
         <form className="col-4">
           <div className="row">
             <div className="col-12">
